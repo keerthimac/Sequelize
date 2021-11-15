@@ -13,17 +13,17 @@ const db = require('./config/database');
 
 //Test db option 02
 try {
-    db.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (err) {
-    console.error('Unable to connect to the database:', err);
-  }
+  db.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (err) {
+  console.error('Unable to connect to the database:', err);
+}
 
 
 const app = express();
 
-app.get('/', (req, res)=>{
-    res.send('INDEX')
+app.get('/', (req, res) => {
+  res.send('INDEX')
 })
 
 //Gig Routes
