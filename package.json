@@ -11,6 +11,7 @@
   "author": "Darshana",
   "license": "MIT",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.5",
@@ -18,6 +19,7 @@
     "sequelize": "^6.9.0"
   },
   "devDependencies": {
+    "handlebars": "^4.5.0",
     "nodemon": "^2.0.15"
   }
 }

@@ -3,6 +3,9 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const Handlebars = require('handlebars')
+const expressHandlebars = require('express-handlebars');
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 
 //Database
 const db = require('./config/database');
@@ -25,8 +28,10 @@ try {
 const app = express();
 
 //Handlebars middleware
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+app.engine('handlebars', expressHandlebars({
+  handlebars: allowInsecurePrototypeAccess(Handlebars)
+}));
+app.set('view engine', 'handlebars');
 
 //set static folder
 app.use(express.static(path.join(__dirname, 'public')))
