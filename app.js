@@ -2,9 +2,11 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const path = require('path');
+const exphbs = require('express-handlebars');
 
 //Database
 const db = require('./config/database');
+
 
 //test db option 01
 // db.authenticate()
@@ -22,6 +24,14 @@ try {
 
 const app = express();
 
+//Handlebars middleware
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
+
+//set static folder
+app.use(express.static(path.join(__dirname, 'public')))
+
+//Index Route
 app.get('/', (req, res) => {
   res.send('INDEX')
 })
