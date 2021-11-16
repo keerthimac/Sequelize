@@ -5,14 +5,13 @@ const Gig = require('../Models/Gig');
 
 
 //get gig list
+// Get gig list
 router.get('/', (req, res) =>
   Gig.findAll()
-    .then(gigs => {
-      res.render('gigs', {
-        gigs
-      });
-    })
-    .catch(err => console.log(err)));
+    .then(gigs => res.render('gigs', {
+      gigs
+    }))
+    .catch(err => res.render('error', { error: err })));
 
 // Add a gig
 router.get('/add', (req, res) => {
