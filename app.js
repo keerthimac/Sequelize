@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 //Index Route
 app.get('/', (req, res) => {
-  res.send('INDEX')
+  res.render('index', { layout: 'landing' }) //if we want to use a different layout other than default layout, we can pass it as a parameter in the render function 
 })
 
 //Gig Routes

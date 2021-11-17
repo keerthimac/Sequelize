@@ -13,6 +13,10 @@ router.get('/', (req, res) =>
     }))
     .catch(err => res.render('error', { error: err })));
 
+//display add gig form
+router.get('/add', (req, res) => res.render('add'));
+
+
 // Add a gig
 router.get('/add', (req, res) => {
   const data = { // (this is hardcoded data for testing usually this will be a form data)
