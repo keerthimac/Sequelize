@@ -30,8 +30,12 @@ const app = express();
 //Handlebars middleware
 app.engine('handlebars', expressHandlebars({
   handlebars: allowInsecurePrototypeAccess(Handlebars)
-}));
+})); // added with stackoverflow help 
 app.set('view engine', 'handlebars');
+
+//Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false })); //got from body-parser docs
+app.use(bodyParser.json());
 
 //set static folder
 app.use(express.static(path.join(__dirname, 'public')))

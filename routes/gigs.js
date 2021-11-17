@@ -18,15 +18,18 @@ router.get('/add', (req, res) => res.render('add'));
 
 
 // Add a gig
-router.get('/add', (req, res) => {
-  const data = { // (this is hardcoded data for testing usually this will be a form data)
-    title: 'simple wordpress website',
-    technologies: 'wordpress,php,html,css',
-    budget: '51000',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    contact_email: 'user2@gmail.com'
-  }
-  let { title, technologies, budget, description, contact_email } = data; // javascript destructureing
+router.post('/add', (req, res) => {
+  // const data = { // (this is hardcoded data for testing usually this will be a form data)
+  //   title: 'simple wordpress website',
+  //   technologies: 'wordpress,php,html,css',
+  //   budget: '51000',
+  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  //   contact_email: 'user2@gmail.com'
+  // }
+
+
+  // Gig.create(data)
+  let { title, technologies, budget, description, contact_email } = req.body; // javascript destructureing & req.body is the form data
   Gig.create({
     title, technologies, description, budget, contact_email
   }).then(gig => {
