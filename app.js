@@ -34,8 +34,8 @@ app.engine('handlebars', expressHandlebars({
 app.set('view engine', 'handlebars');
 
 //Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false })); //got from body-parser docs
-// app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false })); //updated with brad's 2019 express tutorial
+app.use(express.json());
 
 //set static folder
 app.use(express.static(path.join(__dirname, 'public')))
