@@ -40,9 +40,10 @@ a:hover {
 }
 
 .error {
-  padding: 5px;
+  padding: 10px;
   border: #777 dotted 1px;
-  margin-bottom: 15px;
+  margin: 15px;
+  text-align: center;
 }
 
 /* Header */
