@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
-const Gig = require('../Models/Gig');
+const Gig = require('../models/gig');
 
 
 //get gig list
